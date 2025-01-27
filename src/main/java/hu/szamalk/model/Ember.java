@@ -1,22 +1,32 @@
 package hu.szamalk.model;
 
-import java.util.Comparator;
+import java.io.Serializable;
 
-public class Ember implements Comparable<Ember>{
+public class Ember implements Comparable<Ember>, Serializable {
     private String nev;
     private int kor;
+    private String cim;
 
-    public Ember(String nev, int kor) {
+    public Ember(String nev, int kor, String cim) {
         this.nev = nev;
         this.kor = kor;
+        this.cim = cim;
     }
 
     public static NevComparator rendezNev(){
         return new NevComparator();
     }
 
+    public static CimComperator rendezCim(){
+        return new CimComperator();
+    }
+
     public String getNev() {
         return nev;
+    }
+
+    public String getCim() {
+        return cim;
     }
 
     @Override
@@ -24,6 +34,7 @@ public class Ember implements Comparable<Ember>{
         return "Ember{" +
                 "nev='" + nev + '\'' +
                 ", kor=" + kor +
+                ", cim='" + cim + '\'' +
                 '}';
     }
 
